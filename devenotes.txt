@@ -1,0 +1,24 @@
+CLIENT 
+create react application comment 
+npm install --save react-router-dom socket.io-client react-scroll-to-bottom react-emoji
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+SERVER 
+npm init -y 
+npm install --save cors nodemon express socket.io 
