@@ -15,10 +15,24 @@ const io = socketio(server);
 io.on('connection', (socket) => {
     console.log('We have a new connection')
 
+    socket.on('join_khalil', ({ name, room }, callback) => {
+        console.log(name, room)
+        
+        
+        /* error handling with callback
+        let error = true; 
+        if(error) {
+            callback({error : 'There is an error 2323', name, room});
+            console.log(55555555555555555555555)
+        }
+        */
+    })
 
+
+    
     // when user leave realtime connection
-    Socket.on('disconnect', () => {
-        console.log('User had left')
+    socket.on('disconnect', () => {
+        console.log('User left')
     });
 })
 
@@ -28,4 +42,4 @@ app.use(router);
 
 
 /** Server is listening */
-server.listen(PORT, () => console.log(`Server has started on port ${PORT}`))
+server.listen(PORT, () => console.log(`Server started on port ${PORT}`))
