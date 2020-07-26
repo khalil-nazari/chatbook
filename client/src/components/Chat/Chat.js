@@ -18,15 +18,19 @@ const Chat = ({location}) => {
 
         socket = io(ENDPOINT);
 
-        socket.emit('join_khalil', { name, room }, () => {
-           
+        socket.emit('join_khalil', { name, room}, () => {
+            //
         })
-        // socket.emit('join_khalil', {name:name, room:room}, ({error}) => {
+        
+        
+        // socket.emit('join_khalil', {name, room}, ({error}) => {
         //      console.log(error)
         //})
+
+
         return () => {
             socket.emit('disconnect');
-
+            
             socket.off();
         }
 
@@ -38,14 +42,9 @@ const Chat = ({location}) => {
     return (
         <div>
             <h1>Chat</h1>
-            
-
             <p>Username: {name}</p>
             <p>Room: {room}</p>
-
-            <p>
-                <Link to='/'>Home</Link>
-            </p>
+            <p><Link to='/'>Home</Link></p>
         </div>
     );
        
